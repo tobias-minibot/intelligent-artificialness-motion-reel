@@ -742,7 +742,7 @@ function MarqueeRow({ text, fs, family = HEAVY, weight = 900, color, speed, dir 
 
 // ── 01 · OVERLOAD ────────────────────────────────────────────────────────────
 function S1() {
-  const S = 0, E = 5.52; const t = useTime(); const L = t - S;
+  const S = 0, E = 11.72; const t = useTime(); const L = t - S;
   const ROWS = 7, RH = 158, FS = 120;
   const colors = [ACID, KLEIN, ACID, RED, ACID, KLEIN, ACID];
   const gAmt = 1.5 + 32 * Math.pow(seg(L, 2.2, 3.4), 1.6);
@@ -784,7 +784,7 @@ function S1() {
 
 // ── 02 · TICKER ──────────────────────────────────────────────────────────────
 function S2() {
-  const S = 8.0, E = 16.02; const t = useTime(); const L = t - S;
+  const S = 11.7, E = 23.42; const t = useTime(); const L = t - S;
   const R = [
     { t: 'intelligentartificialness ✲ ', fs: 120, fam: HEAVY, w: 900, col: ACID,  sp: 100, tw: 1720, dir: 'left',  ls: '-0.03em' },
     { t: 'ARTIFICIAL INTELLIGENCE · REARRANGED · ', fs: 44, fam: MONO, w: 500, col: BONE, sp: 80, tw: 1340, dir: 'right', ls: '0.14em' },
@@ -817,7 +817,7 @@ function S2() {
 
 // ── 03 · MONOGRAM (ai ⇄ ia) ──────────────────────────────────────────────────
 function S3() {
-  const S = 16.0, E = 24.02; const t = useTime(); const L = t - S;
+  const S = 23.4, E = 35.12; const t = useTime(); const L = t - S;
   const p = eBack(seg(L, 0.25, 1.1));
   const breathe = 1 + 0.012 * Math.sin(L * 1.5);
   const stut = clamp(seg(L, 2.0, 2.3) - seg(L, 2.7, 3.0), 0, 1) + clamp(seg(L, 3.5, 3.8) - seg(L, 4.2, 4.5), 0, 1);
@@ -839,7 +839,7 @@ function S3() {
 
 // ── 04 · TERMINAL ────────────────────────────────────────────────────────────
 function S4() {
-  const S = 24.0, E = 32.02; const t = useTime(); const L = t - S;
+  const S = 35.1, E = 46.82; const t = useTime(); const L = t - S;
   const BG = '#0B0C0F', FG = '#E8E6DF', DIM = '#5A6066';
   const typed = DOMAIN.slice(0, Math.floor(seg(L, 0.5, 3.6) * DOMAIN.length));
   const inG = L > 3.7 && L < 4.2;
@@ -863,7 +863,7 @@ function S4() {
 
 // ── 05 · SLAM ────────────────────────────────────────────────────────────────
 function S5() {
-  const S = 32.0, E = 40.0; const t = useTime(); const L = t - S;
+  const S = 46.8, E = 58.5; const t = useTime(); const L = t - S;
   const combos = [[INK, ACID], [ACID, INK], [KLEIN, ACID], [RED, BONE], [ACID, KLEIN]];
   const slam = L >= 1.3;
   const sh = jit(t, slam ? 2.2 : 5);
@@ -931,9 +931,9 @@ function Grit() {
 function IndexLabel() {
   const t = useTime();
   const sc = [
-    { a: 0, n: '01', name: 'OVERLOAD', d: 1 }, { a: 8, n: '02', name: 'TICKER', d: 1 },
-    { a: 16, n: '03', name: 'MONOGRAM', d: 1 }, { a: 24, n: '04', name: 'TERMINAL', d: 1 },
-    { a: 32, n: '05', name: 'SLAM', d: 0 },
+    { a: 0, n: '01', name: 'OVERLOAD', d: 1 }, { a: 11.7, n: '02', name: 'TICKER', d: 1 },
+    { a: 23.4, n: '03', name: 'MONOGRAM', d: 1 }, { a: 35.1, n: '04', name: 'TERMINAL', d: 1 },
+    { a: 46.8, n: '05', name: 'SLAM', d: 0 },
   ];
   let cur = sc[0]; for (const s of sc) if (t >= s.a) cur = s;
   const col = cur.d ? 'rgba(255,255,255,0.5)' : 'rgba(10,10,10,0.45)';
@@ -946,7 +946,7 @@ function IndexLabel() {
 
 function Reel() {
   return (
-    <Stage width={1920} height={1080} duration={27.5} background={INK} persistKey="iareel">
+    <Stage width={1920} height={1080} duration={58.5} background={INK} persistKey="iareel">
       <S1 /><S2 /><S3 /><S4 /><S5 /><Grit /><IndexLabel />
     </Stage>
   );
