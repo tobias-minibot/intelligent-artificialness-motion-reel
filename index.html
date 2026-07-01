@@ -55,9 +55,12 @@
         z-index: 2;
         min-height: 100%;
         display: grid;
-        align-content: center;
-        padding: clamp(28px, 6vw, 84px);
+        align-content: start;
+        justify-items: start;
+        padding: clamp(26px, 5vw, 64px);
+        padding-top: clamp(24px, 4vw, 52px);
         color: var(--paper);
+        text-align: left;
       }
 
       .kicker {
@@ -70,7 +73,7 @@
 
       h1 {
         max-width: 9ch;
-        margin: 0;
+        margin: 0 0 0 -0.05em;
         font-size: clamp(4rem, 13vw, 12rem);
         line-height: 0.78;
         letter-spacing: 0;
@@ -113,14 +116,14 @@
 
       .stamp {
         position: fixed;
-        right: clamp(18px, 4vw, 54px);
+        left: clamp(26px, 5vw, 64px);
         bottom: clamp(18px, 4vw, 42px);
         z-index: 2;
         color: rgba(244, 241, 234, 0.62);
         font: 700 0.72rem/1.4 JetBrains Mono, ui-monospace, monospace;
         letter-spacing: 0;
         text-transform: uppercase;
-        text-align: right;
+        text-align: left;
       }
 
       @media (max-width: 720px) {
@@ -130,8 +133,7 @@
         }
 
         .stamp {
-          left: 28px;
-          right: auto;
+          left: clamp(26px, 5vw, 64px);
           text-align: left;
         }
       }
