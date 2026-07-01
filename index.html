@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Intelligent Artificialness</title>
+    <meta name="description" content="A placeholder landing page for Intelligent Artificialness.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Fraunces:opsz,wght@9..144,800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --ink: #0a0a0a;
+        --paper: #f4f1ea;
+        --acid: #e4ff3a;
+        --blue: #1e1be0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: var(--ink);
+        overflow: hidden;
+        font-family: Archivo, system-ui, sans-serif;
+      }
+
+      #root,
+      .reel {
+        position: fixed;
+        inset: 0;
+      }
+
+      .reel {
+        opacity: 0.78;
+        filter: saturate(0.92) contrast(0.95);
+      }
+
+      .shade {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.42) 48%, rgba(10, 10, 10, 0.1)),
+          linear-gradient(180deg, rgba(10, 10, 10, 0.12), rgba(10, 10, 10, 0.7));
+      }
+
+      .landing {
+        position: relative;
+        z-index: 2;
+        min-height: 100%;
+        display: grid;
+        align-content: center;
+        padding: clamp(28px, 6vw, 84px);
+        color: var(--paper);
+      }
+
+      .kicker {
+        margin: 0 0 18px;
+        color: var(--acid);
+        font: 700 0.78rem/1 JetBrains Mono, ui-monospace, monospace;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 9ch;
+        margin: 0;
+        font-size: clamp(4rem, 13vw, 12rem);
+        line-height: 0.78;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .copy {
+        max-width: 640px;
+        margin: 28px 0 0;
+        font: 500 clamp(1.05rem, 2vw, 1.45rem)/1.35 system-ui, sans-serif;
+        color: rgba(244, 241, 234, 0.84);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .button {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(244, 241, 234, 0.42);
+        padding: 0 18px;
+        color: var(--paper);
+        text-decoration: none;
+        font: 800 0.82rem/1 system-ui, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      .button.primary {
+        border-color: var(--acid);
+        background: var(--acid);
+        color: var(--ink);
+      }
+
+      .stamp {
+        position: fixed;
+        right: clamp(18px, 4vw, 54px);
+        bottom: clamp(18px, 4vw, 42px);
+        z-index: 2;
+        color: rgba(244, 241, 234, 0.62);
+        font: 700 0.72rem/1.4 JetBrains Mono, ui-monospace, monospace;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-align: right;
+      }
+
+      @media (max-width: 720px) {
+        .landing {
+          align-content: end;
+          padding-bottom: 92px;
+        }
+
+        .stamp {
+          left: 28px;
+          right: auto;
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="reel" aria-hidden="true"></div>
+    <div class="shade" aria-hidden="true"></div>
+    <main class="landing">
+      <p class="kicker">Intelligent Artificialness</p>
+      <h1>Machine-made sensibility.</h1>
+      <p class="copy">A studio for synthetic culture, designed intelligence, and deliberate artificiality.</p>
+      <div class="actions">
+        <a class="button primary" href="mailto:hello@intelligentartificialness.com">Contact</a>
+        <a class="button" href="https://intelligentartificialness.com">Domain</a>
+      </div>
+    </main>
+    <div class="stamp">Placeholder / motion reel<br>Washington, DC</div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="./animations.jsx"></script>
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<Reel />);
+    </script>
+  </body>
+</html>
