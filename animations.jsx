@@ -337,6 +337,7 @@ function Stage({
   fps = 60,
   loop = true,
   autoplay = true,
+  showControls = true,
   persistKey = 'animstage',
   children,
 }) {
@@ -365,7 +366,7 @@ function Stage({
     if (!stageRef.current) return;
     const el = stageRef.current;
     const measure = () => {
-      const barH = 44; // playback bar height
+      const barH = showControls ? 44 : 0; // playback bar height
       const cw = el.clientWidth || (el.parentElement && el.parentElement.clientWidth) || 0;
       const ch = el.clientHeight || (el.parentElement && el.parentElement.clientHeight) || 0;
       // ignore transient zero/near-zero measurements during mount/layout settle
@@ -389,7 +390,7 @@ function Stage({
       rafs.forEach(cancelAnimationFrame);
       clearTimeout(t);
     };
-  }, [width, height]);
+  }, [width, height, showControls]);
 
   // Animation loop
   React.useEffect(() => {
@@ -485,17 +486,18 @@ function Stage({
         </div>
       </div>
 
-      {/* Playback bar — stacked below canvas, never overlapping */}
-      <PlaybackBar
-        time={displayTime}
-        actualTime={time}
-        duration={duration}
-        playing={playing}
-        onPlayPause={() => setPlaying(p => !p)}
-        onReset={() => { setTime(0); }}
-        onSeek={(t) => setTime(t)}
-        onHover={(t) => setHoverTime(t)}
-      />
+      {showControls && (
+        <PlaybackBar
+          time={displayTime}
+          actualTime={time}
+          duration={duration}
+          playing={playing}
+          onPlayPause={() => setPlaying(p => !p)}
+          onReset={() => { setTime(0); }}
+          onSeek={(t) => setTime(t)}
+          onHover={(t) => setHoverTime(t)}
+        />
+      )}
     </div>
   );
 }
@@ -946,7 +948,7 @@ function IndexLabel() {
 
 function Reel() {
   return (
-    <Stage width={1920} height={1080} duration={58.5} background={INK} persistKey="iareel">
+    <Stage width={1920} height={1080} duration={58.5} background={INK} persistKey="iareel" showControls={false}>
       <S1 /><S2 /><S3 /><S4 /><S5 /><Grit /><IndexLabel />
     </Stage>
   );
