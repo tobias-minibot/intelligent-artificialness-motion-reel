@@ -114,27 +114,10 @@
         color: var(--ink);
       }
 
-      .stamp {
-        position: fixed;
-        left: clamp(26px, 5vw, 64px);
-        bottom: clamp(18px, 4vw, 42px);
-        z-index: 2;
-        color: rgba(244, 241, 234, 0.62);
-        font: 700 0.72rem/1.4 JetBrains Mono, ui-monospace, monospace;
-        letter-spacing: 0;
-        text-transform: uppercase;
-        text-align: left;
-      }
-
       @media (max-width: 720px) {
         .landing {
           align-content: end;
           padding-bottom: 92px;
-        }
-
-        .stamp {
-          left: clamp(26px, 5vw, 64px);
-          text-align: left;
         }
       }
     </style>
@@ -151,7 +134,6 @@
         <a class="button" href="https://intelligentartificialness.com">Domain</a>
       </div>
     </main>
-    <div class="stamp">Placeholder / motion reel<br>Washington, DC</div>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
